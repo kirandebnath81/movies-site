@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+
+//toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//component
+import { Pages } from "./pages/Pages";
+
+//redux
+import { login, logout } from "./features/auth/authSlice";
+import { useDispatch } from "react-redux";
+
+//firebase
+import { auth } from "./config/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          login({
+            name: user.displayName,
+            email: user.email,
+            profile: user.photoURL,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer position="top-center" />
+      <Pages />
+    </>
   );
 }
 
