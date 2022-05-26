@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import banner from "../../img/banner.jpg";
 
+import { NavLink } from "react-router-dom";
+
 export const SFooter = styled.footer`
   height: 450px;
   background: linear-gradient(rgba(0, 0, 30, 1), rgba(0, 0, 35, 0.5) 90%),
@@ -68,6 +70,20 @@ export const Container = styled.div`
         cursor: pointer;
         font-size: 11px;
       }
+    }
+  }
+`;
+
+export const StyledLink = styled(NavLink)`
+  &.active {
+    border-bottom: 4px solid red;
+    padding-bottom: 5px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    &.active {
+      border-bottom: 2px solid red;
+      padding-bottom: 5px;
     }
   }
 `;

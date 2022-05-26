@@ -39,9 +39,8 @@ export const StyledCol = styled.div`
   flex-basis: 40%;
 
   img {
-    min-width: 180px;
-    height: auto;
-    width: 60%;
+    height: 340px;
+    width: 55%;
     border-radius: 10px;
     margin-left: 65px;
     box-shadow: 0px 6px 7px 1px black;
@@ -62,6 +61,10 @@ export const StyledCol = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
+    img {
+      width: 50%;
+      height: 250px;
+    }
     flex-basis: 100%;
     display: flex;
     flex-direction: column;

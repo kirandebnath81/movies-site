@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 //base url
 const image_base_url = "https://image.tmdb.org/t/p/original";
 
-export const Favourite = () => {
+const Favourite = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { favouriteList } = useSelector((state) => state.wishList);
@@ -71,3 +71,5 @@ export const Favourite = () => {
     </>
   );
 };
+
+export default Favourite;

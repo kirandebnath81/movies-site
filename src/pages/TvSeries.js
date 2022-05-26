@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //toast
 import { toast } from "react-toastify";
 
@@ -42,7 +45,7 @@ import { setPaginate } from "../features/pagination/PaginationSlice";
 import { setMediaType } from "../features/media/mediaSlice";
 import { removeGenres } from "../features/genres/genresSlice";
 
-export const TvSeries = () => {
+const TvSeries = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -142,7 +145,7 @@ export const TvSeries = () => {
             searchResult.length > 0 ? (
               searchResult.map((tv) => (
                 <Card key={tv.id} onClick={() => clickHandler(tv.id)}>
-                  <img
+                  <LazyLoadImage
                     src={tv.poster_path && img_base_url + tv.poster_path}
                     alt=""
                   />
@@ -158,7 +161,7 @@ export const TvSeries = () => {
             tvSeries &&
             tvSeries.map((tv) => (
               <Card key={tv.id} onClick={() => clickHandler(tv.id)}>
-                <img
+                <LazyLoadImage
                   src={tv.poster_path && img_base_url + tv.poster_path}
                   alt=""
                 />
@@ -177,3 +180,5 @@ export const TvSeries = () => {
     </>
   );
 };
+
+export default TvSeries;

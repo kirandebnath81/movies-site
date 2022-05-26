@@ -2,8 +2,7 @@ import React from "react";
 
 import logo from "../img/logo.png";
 
-import { SFooter, Container } from "./style/Footer.styles";
-import { SLink } from "./style/Navbar.styles";
+import { SFooter, Container, StyledLink } from "./style/Footer.styles";
 
 import { Link } from "react-router-dom";
 
@@ -34,25 +33,29 @@ export const Footer = () => {
 
         <ul>
           <li onClick={clickHandler}>
-            <SLink to={"/movie/upcoming"}>Upcoming Movies</SLink>
+            <StyledLink to={"/movie/upcoming"}>Upcoming Movies</StyledLink>
           </li>
           <li onClick={clickHandler}>
-            <SLink to={"/movie/latest"}>Movies in Theatres</SLink>
+            <StyledLink to={"/movie/latest"}>Movies in Theatres</StyledLink>
           </li>
           <li onClick={clickHandler}>
-            <SLink to={"/people"}>Tmdb Popular Face</SLink>
+            <StyledLink to={"/people"}>Tmdb Popular Face</StyledLink>
           </li>
         </ul>
 
         <ul>
           <li onClick={clickHandler}>
-            <SLink to={"/tv/tv-airing-today"}>Today Airing tv shows</SLink>
+            <StyledLink to={"/tv/tv-airing-today"}>
+              Today Airing tv shows
+            </StyledLink>
           </li>
           <li onClick={clickHandler}>
-            <SLink to={"/tv/tv-on-the-air"}>On the Air tv shows</SLink>
+            <StyledLink to={"/tv/tv-on-the-air"}>
+              On the Air tv shows
+            </StyledLink>
           </li>
           <li onClick={clickHandler}>
-            <SLink to={"/tv/popular"}>Popular Tv shows</SLink>
+            <StyledLink to={"/tv/popular"}>Popular Tv shows</StyledLink>
           </li>
         </ul>
       </Container>

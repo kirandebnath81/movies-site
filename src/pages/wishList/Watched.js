@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 //base url
 const image_base_url = "https://image.tmdb.org/t/p/original";
 
-export const Watched = () => {
+const Watched = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { watchedList } = useSelector((state) => state.wishList);
@@ -79,3 +79,5 @@ export const Watched = () => {
     </>
   );
 };
+
+export default Watched;

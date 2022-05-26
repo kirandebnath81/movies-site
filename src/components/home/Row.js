@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //toast
 import { toast } from "react-toastify";
 
@@ -75,7 +78,7 @@ export const Row = ({ fetchUrl, title, isLargeRow, mediaType }) => {
                     large={isLargeRow}
                     onClick={() => clickHandler(movie.id)}
                   >
-                    <img
+                    <LazyLoadImage
                       className="poster"
                       src={
                         isLargeRow

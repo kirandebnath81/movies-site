@@ -26,7 +26,7 @@ import {
 //router
 import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const [viewForm, setViewForm] = useState(false);
@@ -206,3 +206,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;

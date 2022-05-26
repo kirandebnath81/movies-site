@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //hook
 import useGenres from "../../hooks/useGenres";
 
@@ -31,7 +34,7 @@ import { setMediaType } from "../../features/media/mediaSlice";
 //router
 import { useNavigate } from "react-router-dom";
 
-export const AiringTv = () => {
+const AiringTv = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -92,7 +95,10 @@ export const AiringTv = () => {
               (show) =>
                 show.poster_path && (
                   <Card key={show.id} onClick={() => clickHandler(show.id)}>
-                    <img src={img_base_url + show.poster_path} alt="" />
+                    <LazyLoadImage
+                      src={img_base_url + show.poster_path}
+                      alt=""
+                    />
                     <div>
                       <img src={play} alt="" />
                     </div>
@@ -106,3 +112,5 @@ export const AiringTv = () => {
     </div>
   );
 };
+
+export default AiringTv;

@@ -35,7 +35,7 @@ import { useNavigate } from "react-router-dom";
 //api key
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
-export const Main = () => {
+const Main = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -141,3 +141,5 @@ export const Main = () => {
     </div>
   );
 };
+
+export default Main;

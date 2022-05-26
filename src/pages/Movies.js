@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //toast
 import { toast } from "react-toastify";
 
@@ -43,7 +46,7 @@ import { setPaginate } from "../features/pagination/PaginationSlice";
 import { setMediaType } from "../features/media/mediaSlice";
 import { removeGenres } from "../features/genres/genresSlice";
 
-export const Movies = () => {
+const Movies = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -92,32 +95,6 @@ export const Movies = () => {
   useEffect(() => {
     fetchSearchMovies(searchInput, page);
   }, [searchInput, page]);
-
-  // const CancelToken = axios.CancelToken;
-  // const source = CancelToken.source();
-
-  // axios
-  // .get("/user/12345", {
-  //   cancelToken: source.token,
-  // })
-  // .catch(function (thrown) {
-
-  // });
-
-  // const CancelToken = axios.CancelToken;
-  // const source = CancelToken.source();
-
-  // axios
-  //   .get("/user/12345", {
-  //     cancelToken: source.token,
-  //   })
-  //   .catch(function (thrown) {
-  //     if (axios.isCancel(thrown)) {
-  //       console.log("Request canceled", thrown.message);
-  //     } else {
-  //       // handle error
-  //     }
-  //   });
 
   const fetchSearchMovies = async (searchInput, page) => {
     if (!searchInput) return;
@@ -174,7 +151,7 @@ export const Movies = () => {
             searchResult.length > 0 ? (
               searchResult.map((movie) => (
                 <Card key={movie.id} onClick={() => clickHandler(movie.id)}>
-                  <img
+                  <LazyLoadImage
                     src={movie.poster_path && img_base_url + movie.poster_path}
                     alt=""
                   />
@@ -190,7 +167,7 @@ export const Movies = () => {
             movies &&
             movies.map((movie) => (
               <Card key={movie.id} onClick={() => clickHandler(movie.id)}>
-                <img
+                <LazyLoadImage
                   src={movie.poster_path && img_base_url + movie.poster_path}
                   alt=""
                 />
@@ -209,3 +186,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

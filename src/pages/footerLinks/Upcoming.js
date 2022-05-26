@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //toast
 import { toast } from "react-toastify";
 
@@ -32,7 +35,7 @@ import { setMediaType } from "../../features/media/mediaSlice";
 //router
 import { useNavigate } from "react-router-dom";
 
-export const Upcoming = () => {
+const Upcoming = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -93,7 +96,10 @@ export const Upcoming = () => {
               (movie) =>
                 movie.poster_path && (
                   <Card key={movie.id} onClick={() => clickHandler(movie.id)}>
-                    <img src={img_base_url + movie.poster_path} alt="" />
+                    <LazyLoadImage
+                      src={img_base_url + movie.poster_path}
+                      alt=""
+                    />
                     <div>
                       <img src={play} alt="" />
                     </div>
@@ -107,3 +113,4 @@ export const Upcoming = () => {
     </div>
   );
 };
+export default Upcoming;

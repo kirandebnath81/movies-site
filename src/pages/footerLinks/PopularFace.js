@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import axios from "../../config/axios";
 import { requests } from "../../config/apiConfig";
 
@@ -18,7 +21,7 @@ import { Pagination } from "../../components/Pagination";
 import { useSelector, useDispatch } from "react-redux";
 import { setPaginate } from "../../features/pagination/PaginationSlice";
 
-export const PopularFace = () => {
+const PopularFace = () => {
   const dispatch = useDispatch();
 
   //global state
@@ -61,7 +64,10 @@ export const PopularFace = () => {
               (person) =>
                 person.profile_path && (
                   <Card key={person.id}>
-                    <img src={img_base_url + person.profile_path} alt="" />
+                    <LazyLoadImage
+                      src={img_base_url + person.profile_path}
+                      alt=""
+                    />
                     <div className="name">
                       {person?.original_name || person?.name}
                     </div>
@@ -83,3 +89,5 @@ const Container = styled.div`
     padding: 0px 25px;
   }
 `;
+
+export default PopularFace;

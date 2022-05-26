@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+//lazy load images
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 //toast
 import { toast } from "react-toastify";
 //slider
@@ -71,6 +74,7 @@ export const Banner = () => {
           autoplay: true,
           interval: 2500,
           drag: true,
+          autoWidth: true,
         }}
       >
         {randomMovies &&
@@ -81,13 +85,13 @@ export const Banner = () => {
                   <StyledRow>
                     <StyledCol>
                       <h1>{movie.original_name || movie.original_title}</h1>
-                      <p>{movie.overview?.split(".")[0]}.</p>
+                      <p>{movie.overview?.split(".")[0]}</p>
                       <Button onClick={() => clickHandler(movie.id)}>
                         Watch Now
                       </Button>
                     </StyledCol>
                     <StyledCol>
-                      <img
+                      <LazyLoadImage
                         src={
                           movie.poster_path && img_base_url + movie.poster_path
                         }

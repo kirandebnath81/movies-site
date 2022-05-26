@@ -6,9 +6,9 @@ export const Container = styled.div`
   padding: 100px 52px;
 
   @media only screen and (max-width: 600px) {
-    padding: 100px 25px;
+    padding: 100px 20px;
   }
-  @media only screen and (max-width: 601px) and (max-width: 1000px) {
+  @media only screen and (min-width: 601px) and (max-width: 1000px) {
     padding: 0px 42px;
   }
 `;

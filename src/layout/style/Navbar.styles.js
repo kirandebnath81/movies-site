@@ -158,6 +158,7 @@ export const NavItems = styled.div`
       }
       li::after {
         transition: 400ms ease-out width;
+        height: 2px;
       }
       li:hover::after {
         width: 25%;

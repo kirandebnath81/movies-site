@@ -57,7 +57,7 @@ export const Card = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    max-width: ${({ large }) => (large ? "155px" : "340px")};
-    margin: ${({ large }) => (large ? "20px 11px" : "20px 13px")};
+    width: ${({ large }) => (large ? "130px" : "300px")};
+    margin: ${({ large }) => (large ? "20px 25px" : "20px 25px")};
   }
 `;

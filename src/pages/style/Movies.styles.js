@@ -58,8 +58,8 @@ export const Card = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 150px;
-    margin: 10px;
+    width: 120px;
+    margin: 15px;
   }
 `;
 
